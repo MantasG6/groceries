@@ -12,7 +12,7 @@ public class ItemController {
 
     @GetMapping("/api/v1/items")
     public Item items() {
-        return new Item(1, "Apple", Category.FRUIT, BigDecimal.valueOf(1.25));
+        return new Item(1, "Apple", Category.FRUIT, BigDecimal.valueOf(1.25), 10);
     }
 
 }
