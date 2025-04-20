@@ -1,13 +1,25 @@
 package com.mantas.groceries.model;
 
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
-public record Item(@NotNull int id,
-                   @NotNull String name,
-                   @NotNull Category category,
-                   @NotNull BigDecimal price,
-                   @NotNull @Size(max = 99) int amount) {
+@Data
+@Entity
+@Table(name = "items")
+public class Item {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
+    private BigDecimal price;
+
+    private int amount;
 }
