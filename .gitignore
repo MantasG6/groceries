@@ -29,5 +29,12 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### Docker compose secrets ###
+db_password.txt
+db_user.txt
+
+### Spring secrets ###
+src/main/resources/secrets.properties
+
 ### VS Code ###
 .vscode/
