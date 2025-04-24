@@ -1,4 +1,18 @@
 services:
+  groceries-web-app:
+    image: openjdk:17
+    container_name: groceries-app
+    working_dir: /app
+    volumes:
+      - ./target/groceries-0.0.1-SNAPSHOT.jar:/app/groceries-0.0.1-SNAPSHOT.jar
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/groceries
+    depends_on:
+      - db
+    command: ["java", "-jar", "groceries-0.0.1-SNAPSHOT.jar"]
+
   db:
     image: postgres:15
     restart: always
